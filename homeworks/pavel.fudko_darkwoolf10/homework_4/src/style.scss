@@ -1,45 +1,40 @@
 $body-color: #FFE;
 
 html, body {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: Courier, monospace;
   height: 100%;
   margin: 0;
   padding: 0;
   background-color: $body-color;
 
   .container {
-    height: 100%;  
-
-    #contact-form {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      .form-item, .form-btn {
-        box-shadow: 5px 5px 3px black;
-      }
-
-      .form-item {
-        margin-bottom: 20px;
-        font-size: 2em;
-        border-radius: 5px;
-        padding: 5px;
-      }
-
-      .form-btn {
-        font-size: 3em;
-        border-radius: 5px;
-        background-color: #EEE;
-        cursor: pointer;
-        width: 27rem;
-      }
-
-
-    }
+    height: 100%;
   }
 }
 
+.contact-form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
+.form-item, .form-btn {
+  box-shadow: 5px 5px 3px #000;
+}
 
+.form-item {
+  margin-bottom: 20px;
+  font-size: 2em;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.form-btn {
+  font-size: 3em;
+  border-radius: 5px;
+  background-color: #EEE;
+  cursor: pointer;
+  width: 27rem;
+}
