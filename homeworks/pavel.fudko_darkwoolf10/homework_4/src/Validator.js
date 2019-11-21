@@ -13,16 +13,16 @@ export default class Validator extends Singleton {
         return pattern.test(text);
     }
 
-    email(text) {
+    static email(text) {
         const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/;
 
-        return this.pattern(text, emailPattern);
+        return Validator.pattern(text, emailPattern);
     }
 
-    phone(text) {
+    static phone(text) {
         const phonePattern = /^\+{1}\d{1,2}\({1}\d{3}\){1}\d{3}([-]{1}\d{2}){2}/;
 
-        return this.pattern(text, phonePattern);
+        return Validator.pattern(text, phonePattern);
     }
 
     static numberRange(number, min, max) {
