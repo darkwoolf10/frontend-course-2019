@@ -1,8 +1,8 @@
 import Singleton from './Singleton';
+import {regexEmail, regexPhone} from './regex';
 
 export default class Validator extends Singleton {
     static minLength(text, length) {
-        console.log(text);
         return text.length < length;
     }
 
@@ -15,15 +15,11 @@ export default class Validator extends Singleton {
     }
 
     static email(text) {
-        const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/;
-
-        return Validator.pattern(text, emailPattern);
+        return Validator.pattern(text, regexEmail);
     }
 
     static phone(text) {
-        const phonePattern = /^\+{1}\d{1,2}\({1}\d{3}\){1}\d{3}([-]{1}\d{2}){2}/;
-
-        return Validator.pattern(text, phonePattern);
+        return Validator.pattern(text, regexPhone);
     }
 
     static numberRange(number, min, max) {
