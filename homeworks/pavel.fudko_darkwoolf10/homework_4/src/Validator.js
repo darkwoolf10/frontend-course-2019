@@ -2,6 +2,7 @@ import Singleton from './Singleton';
 
 export default class Validator extends Singleton {
     static minLength(text, length) {
+        console.log(text);
         return text.length < length;
     }
 

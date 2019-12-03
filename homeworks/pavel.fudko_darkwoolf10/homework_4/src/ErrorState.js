@@ -3,18 +3,26 @@ import Singleton from './Singleton';
 export default class ErrorState extends Singleton {
     constructor() {
         super();
-        this.form = document.getElementById('contact-form');
     }
 
     render(error, field) {
-        const input = this.form.querySelector(`input[name=${field}]`);
+        const input = document.querySelector(`#${field}`);
 
-        if (error === true) {
-            input.style.border = '3px solid green';
+        if (error) {
+            this.setSuccessClass(input, error);
             return true;
         }
 
-        input.style.border = '3px solid red';
-        return false;
+        this.setDangerClass(input, error);
+    }
+
+    setSuccessClass(input, error){
+        input.classList.add('success', error);
+        input.classList.remove('danger', error);
+    }
+
+    setDangerClass(input, error) {
+        input.classList.remove('success', !error);
+        input.classList.toggle('danger', !error);
     }
 }
