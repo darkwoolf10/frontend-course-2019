@@ -1,5 +1,4 @@
 import './style.scss';
-import Validator from './Validator';
 import ErrorState from './ErrorState';
 import ValidationForm from './ValidationForm';
 
@@ -7,7 +6,6 @@ const errorState = ErrorState.getInstance();
 
 const validationForm = new ValidationForm();
 
-const form = document.getElementById('contact-form');
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     const form = {
