@@ -2,8 +2,6 @@ import './style.scss';
 import ErrorState from './ErrorState';
 import ValidationForm from './ValidationForm';
 
-const errorState = ErrorState.getInstance();
-
 const validationForm = new ValidationForm();
 
 form.addEventListener('submit', (event) => {
@@ -16,6 +14,19 @@ form.addEventListener('submit', (event) => {
         age: document.querySelector('#age'),
     };
 
+    let error = validationForm.validationName(form.name.value);
+    errorState.render(error, form.name);
+
+    error = validationForm.validationName(form.lastName.value);
+    errorState.render(error, form.lastName);
+
+    error = validationForm.validateEmail(form.email.value);
+    errorState.render(error, form[email]);
+
+    error = validationForm.validatePhone(form.phone.value);
+    errorState.render(error, form.phone);
+
+
     Object.keys(form).forEach((field ) => {
         let error = false;
 
@@ -24,20 +35,16 @@ form.addEventListener('submit', (event) => {
 
             switch (field) {
                 case 'name':
-                    error = validationForm.validationName(value);
-                    errorState.render(error, field);
+
                     break;
                 case 'lastName':
-                    error = validationForm.validationName(value);
-                    errorState.render(error, field);
+
                     break;
                 case 'email':
-                    error = validationForm.validateEmail(value);
-                    errorState.render(error, field);
+
                     break;
                 case 'phone':
-                    error = validationForm.validatePhone(value);
-                    errorState.render(error, field);
+
                     break;
                 case 'age':
                     error = validationForm.validateAge(value);

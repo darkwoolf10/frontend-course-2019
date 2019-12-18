@@ -1,13 +1,7 @@
 import Singleton from './Singleton';
 
 export default class ErrorState extends Singleton {
-    constructor() {
-        super();
-    }
-
-    render(error, field) {
-        const input = document.querySelector(`#${field}`);
-
+    render(error, input) {
         if (error) {
             this.setSuccessClass(input, error);
             return true;

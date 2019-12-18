@@ -1,10 +1,17 @@
 import Validator from "./Validator";
 
 export default class ErrorState {
+    constructor() {
+        this.errorState = ErrorState.getInstance();
+    }
+
     validationName(value) {
         let minLength = Validator.minLength(value, 2),
             maxLength = Validator.maxLength(value, 20);
-        return !(minLength === true && maxLength === false);
+        const error = !(minLength === true && maxLength === false);
+
+        this.errorState.render(error, form[name]);
+
     }
 
     validateEmail(value) {
